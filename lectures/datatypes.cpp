@@ -2,29 +2,65 @@
 Name: Jeremy Bergen
 
 All about the data...types...
+
+
+
+
+
 */
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    unsigned int number1;
+    // int num1, num2, num3;
 
-    number1 = 2147483646;
+    // cout << "Please enter 3 numbers separated by a space: ";
+    // cin >> num1 >> num2 >> num3;
 
-    cout << "number1: " << number1 << endl;
+    // cout << "You entered: " << num1 << " " << num2 << " " << num3 << "." << endl;
 
-    number1 = number1 + 1;
+    // string firstName;
+    // string lastName;
+    // char middleInitial;
+    // string fullName;
 
-    cout << "number1: " << number1 << endl;
+    // cout << "What is your first name? ";
+    // // cin >> firstName;
+    // getline(cin, firstName);
 
-    number1++;
+    // cout << "What is your last name? ";
+    // // cin >> lastName;
+    // getline(cin, lastName);
 
-    cout << "number1: " << number1 << endl;
+    // cout << "What is your middle initial? ";
+    // cin >> middleInitial;
 
-    number1++;
+    // fullName = firstName + " " + middleInitial + " " + lastName;
+    // cout << "Welcome " << fullName << " to our program." << endl;
+    // cout << "Welcome " << firstName << " " << middleInitial << " " << lastName << " to our program." << endl;
 
-    cout << "number1: " << number1 << endl;
+
+    // middleInitial = 'J';
+
+    // cout << "My middle initial is: " << middleInitial << endl;
+    // unsigned long number1;
+
+    // number1 = 2;
+
+    // cout << "number1: " << number1 << endl;
+
+    // number1 = number1 - 1;
+
+    // cout << "number1: " << number1 << endl;
+
+    // number1--;
+
+    // cout << "number1: " << number1 << endl;
+
+    // number1--;
+
+    // cout << "number1: " << number1 << endl;
     // char someChar;
     // int someInt = 42;
     // float thisIsAFloat;
