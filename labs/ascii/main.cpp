@@ -28,7 +28,7 @@ int main()
 
     string someLine;
 
-    someLine = "This is a line of text";
+    someLine = "Thi\ts is a li\ne of t\rext";
 
     cout << someLine << endl;
 
