@@ -13,6 +13,23 @@ All about the data...types...
 using namespace std;
 
 int main() {
+    // char middleInitial;
+
+    // cout << "Please enter your middle initial: ";
+    // cin >> middleInitial;
+    // getline(cin, middleInitial);
+    // long number1;
+    // int number2;
+    // float num3;
+
+    // number1 = 42;
+
+    // cout << "Your number is: " << number1 << endl;
+    // cout << "The size of number1 is: " << sizeof(number1) << endl;
+    // cout << "The memory address of number2 is: " << &number2 << endl;
+    // cout << "The memory address of number3 is: " << &num3 << endl;
+    // cout << "The memory address of number1 is: " << &number1 << endl;
+
     // int num1, num2, num3;
 
     // cout << "Please enter 3 numbers separated by a space: ";
