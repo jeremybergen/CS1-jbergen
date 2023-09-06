@@ -2,8 +2,8 @@
     StdIO Lab
     ASCII Art - using literals and variables
     
-    Updated By: <Your name> #FIXME1
-    Date: ... #FIXME2
+    Updated By: Jeremy Bergen #FIXME1 #fixed#
+    Date: 09/06/23 #FIXME2 #fixed#
     
     This program produces an ASCII art on the console.
 
