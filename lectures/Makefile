@@ -10,10 +10,10 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = cylinderCalcFunc.out
+PROGRAM = conditionals.out
 
 # list all .cpp files separated by space
-CPPFILES = cylinderCalcFunc.cpp
+CPPFILES = conditionals.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
