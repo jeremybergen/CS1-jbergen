@@ -13,24 +13,61 @@ int main() {
 
     cout << "Please enter a whole number: ";
     cin >> n1;
+
+    switch(n1) {
+        case 'J':
+        case '&':
+            cout << "You entered &" << endl;
+            break;
+        default:
+            cout << "You entered something else" << endl;
+            break;
+    }
     // n1 = -10;
     // n2 = 10;
 
-    if (n1%2 == 0) {
-        cout << "n1 is even" << endl;
-    } else {
-        cout << "n1 is odd" << endl;
-    }
-    
-    if (n1 < 0) {
-        cout << "n1 is negative" << endl;
-    } else {
-        if (n1 == 0) {
-            cout << "n1 is zero" << endl;
-        } else {
-            cout << "n1 is positive" << endl;
-        }
-    }
+    // if (n1%2 == 0) {
+    //     cout << "n1 is even" << endl;
+    // } else {
+    //     cout << "n1 is odd" << endl;
+    // }
+
+
+
+    // switch (n1) {
+    //     case 0:
+    //         cout << "n1 is zero" << endl;
+    //         break;
+    //     case 42:
+    //         cout << "n1 is 42" << endl;
+    //         if (n1 == 0) {
+    //             cout << "n1 is zero" << endl;
+    //         } else if (n1 > 0) {
+    //             cout << "n1 is positive" << endl;
+    //         } else if (n1 < 0) {
+    //             cout << "n1 is negative" << endl;
+    //         } else {
+    //             cout << "We should never get here" << endl;
+    //         }
+    //         break;
+    //     case -15:
+    //         cout << "n1 is -15" << endl;
+    //         break;
+    //     default:
+    //         cout << "n1 is not zero, 42 or -15" << endl;
+    //         break;
+    // }
+
+
+    // if (n1 < 0) {
+    //     cout << "n1 is negative" << endl;
+    // } else {
+    //     if (n1 == 0) {
+    //         cout << "n1 is zero" << endl;
+    //     } else {
+    //         cout << "n1 is positive" << endl;
+    //     }
+    // }
 
     // if (n1 != n2)
     // {
