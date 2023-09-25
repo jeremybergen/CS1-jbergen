@@ -10,10 +10,10 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = conditionals.out
+PROGRAM = dinnerPicker.out
 
 # list all .cpp files separated by space
-CPPFILES = conditionals.cpp
+CPPFILES = dinnerPicker.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
@@ -31,3 +31,6 @@ clean:
 # Add a rule to run the program
 run:
 	./$(PROGRAM)
+
+test:
+	./$(PROGRAM) test
