@@ -49,6 +49,18 @@
 | Self Grade | 20/100 |
 | Notes | Just started working on it |
 
+### Lab #2
+
+| Name | Value |
+| :--- | :--- |
+| Name | 2 - Circle Lab |
+| Description | Lab covering standard input and output |
+| Due Date | 09/08/23 |
+| Status | in-progress |
+| Location | https://github.com/rambasnet/csci000-astudent/tree/master/labs/cpp/stdio |
+| Self Grade | 20/100 |
+| Notes | Just started working on it |
+
 
 ## References
 
