@@ -18,47 +18,59 @@ Cylinder calculator with functions!
 using namespace std;
 
 string promptName();
-void greetUser(string);
+void greetUser(string*);
 // float getParameters();
 // float getHeight();
 // float getRadius();
 void getParameters(float&, float&);
-float calcArea(float);
-float calcVolume(float, float);
-void printVals(float, float, float, float);
+float calcArea(float*);
+float calcVolume(float*, float*);
+void printVals(float*, float*, float*, float*);
 
 int main() {
     string fullName;
     float height, radius;
     float area, volume;
 
-    fullName = promptName();
-    greetUser(fullName);
+    float* hPtr1;
+    float* rPtr1;
+    float* aPtr1;
+    float* vPtr1;
+    string* namePtr;
 
-    getParameters(height, radius);
+    hPtr1 = &height;
+    rPtr1 = &radius;
+    aPtr1 = &area;
+    vPtr1 = &volume;
+    namePtr = &fullName;
+
+    fullName = promptName();
+    greetUser(namePtr);
+
+    getParameters(*hPtr1, *rPtr1);
     // cout << "DEBUG: height: " << height << endl;
     // cout << "DEBUG: radius: " << radius << endl;
-    area = calcArea(radius);
+    area = calcArea(rPtr1);
     // cout << "DEBUG: area: " << area << endl;
-    volume = calcVolume(height, area);
+    volume = calcVolume(hPtr1, aPtr1);
 
-    printVals(height, radius, area, volume);
+    printVals(hPtr1, rPtr1, aPtr1, vPtr1);
 
     return 0;
 }
 
-void printVals(float height, float radius, float area, float volume) {
-    printf("Your cylinder with height %f and radius %f has an area of %f and a volume of %f\n", height, radius, area, volume);
+void printVals(float* height, float* radius, float* area, float* volume) {
+    printf("Your cylinder with height %f and radius %f has an area of %f and a volume of %f\n", *height, *radius, *area, *volume);
 }
 
-float calcArea(float radius) {
-    float area = M_PI * pow(radius, 2);
+float calcArea(float* radius) {
+    float area = M_PI * pow(*radius, 2);
     return area;
 }
 
-float calcVolume(float height, float area) {
+float calcVolume(float* height, float* area) {
     float volume;
-    volume = area * height;
+    volume = *area * *height;
     return volume;
 }
 
@@ -72,8 +84,8 @@ string promptName()
 }
 
 // 2) greet user
-void greetUser(string fName) {
-    cout << "Welcome " << fName << " to our cylinder calculator." << endl;
+void greetUser(string* fName) {
+    cout << "Welcome " << *fName << " to our cylinder calculator." << endl;
 }
 
 // float getParameters() {   WRONG!!!!!
