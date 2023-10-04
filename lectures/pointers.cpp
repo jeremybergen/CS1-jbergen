@@ -9,51 +9,110 @@ Pointers
 
 using namespace std;
 
-void getNum(int**);
-//void getNum(int&);
+// int* addNums(int, int, int*);
+// void sayHello(string);
+// void sayGoodbye(void*(string), string);
+
+void function1() {
+    cout << "Function 1" << endl;
+}
+
+void function2(void (*ptr)()) {
+    (*ptr) ();
+    cout << "Function 2" << endl;
+}
 
 int main(int argc, char *argv[]) {
-    int num1, num2;
-    int* ptr1, ptr2;
+    void (*ptr)() = &function1;
+    function2(ptr);
+    // sayHello("Jeremy");
+    // // cout << &sayHello << endl;
 
-    int* heapPtr1 = new int;
-    string* strPtr1 = new string;
-    int** heapPtr2 = new int*;
+    // void (*ptr1)(string) = &sayHello;
 
-    cout << "&num1: \t\t" << &num1 << endl;
-    cout << "&num2: \t\t" << &num2 << endl;
-    cout << "&ptr1: \t\t" << &ptr1 << endl;
-    cout << "&ptr2: \t\t" << &ptr2 << endl;
+    // ptr1("Bergen");
 
-    cout << "&heapPtr1: \t" << &heapPtr1 << endl;
-    cout << "&strPtr1: \t" << &strPtr1 << endl;
+    // sayGoodbye(ptr1(), "Jeremy");
 
-    cout << "heapPtr1: \t" << heapPtr1 << endl;
-    cout << "strPtr1: \t" << strPtr1 << endl;
-
-    *heapPtr1 = 42;
-    *strPtr1 = "Jeremy";
-
-    cout << "*heapPtr1: \t" << *heapPtr1 << endl;
-    cout << "*strPtr1: \t" << *strPtr1 << endl;
-    // int num1 = 0;
-    // int* ptr1 = nullptr;
+    // int num1, num2;
+    // int sum;
+    // int* answer = &sum;
 
     // num1 = 42;
+    // num2 = 15;
 
-    // ptr1 = nullptr;
-    // ptr1 = NULL;
-    // ptr1 = __null;
+    // answer = addNums(num1, num2, &sum);
 
-    // if(ptr1 == nullptr) {
-    //     cout << "We don't have a valid address stored" << endl;
-    // }
+    // cout << num1 << " + " << num2 << " = " << *answer << endl;
 
-    delete strPtr1;
-    delete heapPtr1;
     return 0;
 }
 
+
+
+// void sayGoodbye(void (*ptr)(string name2), string name) {
+//     ptr(name);
+//     // cout << "Goodbye " << *ptr(name) << endl;
+// }
+
+// void sayHello(string name) {
+//     cout << "Hello " << name << endl;
+// }
+
+// int* addNums(int n1, int n2, int* sum) {
+//     int* result = sum;
+    
+
+//     *result = n1 + n2;
+//     return result;
+// }
+
+
+
+
+
+
+// void getNum(int**);
+//void getNum(int&);
+
+    // int num1, num2;
+    // int* ptr1, ptr2;
+
+    // int* heapPtr1 = new int;
+    // string* strPtr1 = new string;
+    // int** heapPtr2 = new int*;
+
+    // cout << "&num1: \t\t" << &num1 << endl;
+    // cout << "&num2: \t\t" << &num2 << endl;
+    // cout << "&ptr1: \t\t" << &ptr1 << endl;
+    // cout << "&ptr2: \t\t" << &ptr2 << endl;
+
+    // cout << "&heapPtr1: \t" << &heapPtr1 << endl;
+    // cout << "&strPtr1: \t" << &strPtr1 << endl;
+
+    // cout << "heapPtr1: \t" << heapPtr1 << endl;
+    // cout << "strPtr1: \t" << strPtr1 << endl;
+
+    // *heapPtr1 = 42;
+    // *strPtr1 = "Jeremy";
+
+    // cout << "*heapPtr1: \t" << *heapPtr1 << endl;
+    // cout << "*strPtr1: \t" << *strPtr1 << endl;
+    // // int num1 = 0;
+    // // int* ptr1 = nullptr;
+
+    // // num1 = 42;
+
+    // // ptr1 = nullptr;
+    // // ptr1 = NULL;
+    // // ptr1 = __null;
+
+    // // if(ptr1 == nullptr) {
+    // //     cout << "We don't have a valid address stored" << endl;
+    // // }
+
+    // delete strPtr1;
+    // delete heapPtr1;
 // void getNum(int** number1) {
 //     *(*number1) = 42;
 // }
