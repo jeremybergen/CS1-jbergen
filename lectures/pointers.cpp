@@ -13,18 +13,21 @@ using namespace std;
 // void sayHello(string);
 // void sayGoodbye(void*(string), string);
 
-void function1() {
+void function1(string test) {
     cout << "Function 1" << endl;
+    cout << test << endl;
 }
 
-void function2(void (*ptr)()) {
-    (*ptr) ();
+void function2(void (*ptr)(string)) {
+    (*ptr) ("Jeremy");
     cout << "Function 2" << endl;
 }
 
 int main(int argc, char *argv[]) {
-    void (*ptr)() = &function1;
-    function2(ptr);
+    // void (*ptr)("Jeremy") = &function1;
+    
+    // void (*ptr2)() = &function2;
+    function2("Jeremy");
     // sayHello("Jeremy");
     // // cout << &sayHello << endl;
 
