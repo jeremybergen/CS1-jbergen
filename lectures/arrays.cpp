@@ -8,68 +8,120 @@ Arrays!!!!
 
 using namespace std;
 
-size_t getArrSize();
-void getNums(size_t, int[]);
-void printNums(int*, size_t);
-void copyArray(int[], int[], size_t);
+// void printArrays(int*, size_t);
 
 int main(int argc, char *argv[]) {
-    size_t arrSize = getArrSize();
-    int *ptr;
-    // unsigned long arrSize = 10;
+    // int numbers[1000][1000][3];
+    int *numbers = new int[600000000];
 
-    int numbers[arrSize];
-    int numbers2[arrSize];
-    int *numbers3;
+    for(size_t i = 0; i < 600000000; i++) {
+        numbers[i] = i;
+    }
 
-    ptr = numbers;
+    // cout << sizeof(numbers) << endl;
 
-    getNums(arrSize, ptr);
+    // int numbers[3][3] = {0};
+    // int moreNums[3][3][3] = {0};
 
-    cout << "numbers: " << endl;
-    printNums(numbers, arrSize);
+    // numbers[2][0] = 42;
+    // numbers[1][1] = 15;
 
-    copyArray(numbers, numbers2, arrSize);
+    // // for(size_t i = 0; i < 3; i++) {
+    // //     for(size_t j = 0; j < 3; j++) {
+    // //         for(size_t k = 0; k < 3; k++) {
+    // //             cout << "moreNums[" << i << "][" << j << "][" << k << "]: " << moreNums[i][j][k] << endl;
+    // //         }
+    // //     }
+    // // }
+    // printArrays(&numbers[0][0], 3);
 
-    numbers[0] = 8;
-
-    cout << "numbers2 after copy: " << endl;
-    printNums(numbers2, arrSize);
-
-    numbers3 = numbers;
-
-    cout << "numbers3: " << endl;
-    printNums(numbers3, arrSize);
-
+    delete[] numbers;
     return 0;
 }
 
-void copyArray(int source[], int destination[], size_t arrSize) {
-    for(size_t i = 0; i < arrSize; i++) {
-        destination[i] = source[i];
-    }
-}
+// void printArrays(int numbers[][3], size_t arrSize) {
+// void printArrays(int* numbers, size_t arrSize) {
+//     int counter = 0;
+//     for(size_t i = 0; i < arrSize; i++) {
+//         for(size_t j = 0; j < arrSize; j++) {
+//                 // cout << "numbers[" << i << "][" << j << "]: " << numbers[i][j] << endl;
+//                 cout << "numbers[" << i << "][" << j << "]: " << *(numbers + (arrSize*i) + j) << endl;
+//                 counter++;
+//         }
+//     }
+// }
 
-void printNums(int* numbers, size_t arrSize) {
-    // size_t arrSize = sizeof(numbers)/sizeof(int); WILL NOT WORK!!!
-    for(size_t i = 0; i < arrSize; i++) {
-        cout << "numbers[" << i << "]: " << numbers[i] << endl;
-    }
-}
 
-void getNums(size_t arrSize, int numbers[]) {
-    cout << "Please enter " << arrSize << " numbers." << endl;
-    for(size_t i = 0; i < arrSize; i++) {
-        cin >> numbers[i];
-    }
-}
 
-size_t getArrSize() {
-    size_t arrSize;
-    cout << "How many numbers do you want? ";
-    cin >> arrSize;
-    return arrSize;
-}
+
+
+
+
+
+
+// size_t getArrSize();
+// void getNums(size_t, int[]);
+// void printNums(int*, size_t);
+// void copyArray(int[], int[], size_t);
+
+// int main(int argc, char *argv[]) {
+//     size_t arrSize = getArrSize();
+//     int *ptr;
+//     // unsigned long arrSize = 10;
+
+//     int numbers[arrSize];
+//     int numbers2[arrSize];
+//     int *numbers3;
+
+//     ptr = numbers;
+
+//     getNums(arrSize, ptr);
+
+//     cout << "numbers: " << endl;
+//     printNums(numbers, arrSize);
+
+//     copyArray(numbers, numbers2, arrSize);
+
+//     numbers[0] = 8;
+
+//     cout << "numbers2 after copy: " << endl;
+//     printNums(numbers2, arrSize);
+
+//     numbers3 = numbers;
+
+//     cout << "numbers3: " << endl;
+//     printNums(numbers3, arrSize);
+
+//     return 0;
+// }
+
+// void copyArray(int source[], int destination[], size_t arrSize) {
+//     for(size_t i = 0; i < arrSize; i++) {
+//         destination[i] = source[i];
+//     }
+// }
+
+// void printNums(int* numbers, size_t arrSize) {
+//     // size_t arrSize = sizeof(numbers)/sizeof(int); WILL NOT WORK!!!
+//     for(size_t i = 0; i < arrSize; i++) {
+//         // cout << "numbers[" << i << "]: " << numbers[i] << endl;
+//         cout << "*(numbers+i): " << *(numbers+i) << endl;
+//     }
+// }
+
+// void getNums(size_t arrSize, int numbers[]) {
+//     cout << "Please enter " << arrSize << " numbers." << endl;
+//     for(size_t i = 0; i < arrSize; i++) {
+//         cin >> numbers[i];
+//     }
+// }
+
+// size_t getArrSize() {
+//     size_t arrSize;
+//     cout << "How many numbers do you want? ";
+//     cin >> arrSize;
+//     return arrSize;
+// }
 
 
 
