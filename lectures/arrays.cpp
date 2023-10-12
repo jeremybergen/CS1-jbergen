@@ -5,39 +5,134 @@ Arrays!!!!
 */
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
 // void printArrays(int*, size_t);
+void initialzeBoard(char[][3]);
+void printBoard(char[][3]);
+void checkWin(char[][3]);
 
 int main(int argc, char *argv[]) {
-    // int numbers[1000][1000][3];
-    int *numbers = new int[600000000];
+    char board[3][3];
 
-    for(size_t i = 0; i < 600000000; i++) {
-        numbers[i] = i;
-    }
+    initialzeBoard(board);
 
-    // cout << sizeof(numbers) << endl;
+    board[2][0] = 'X';
+    
+    // board[1][2] = 'X';
+    // board[1][0] = 'O';
+    // board[0][1] = 'X';
 
-    // int numbers[3][3] = {0};
-    // int moreNums[3][3][3] = {0};
+    printBoard(board);
+    checkWin(board);
 
-    // numbers[2][0] = 42;
-    // numbers[1][1] = 15;
+    board[1][1] = 'O';
+    printBoard(board);
+    checkWin(board);
 
-    // // for(size_t i = 0; i < 3; i++) {
-    // //     for(size_t j = 0; j < 3; j++) {
-    // //         for(size_t k = 0; k < 3; k++) {
-    // //             cout << "moreNums[" << i << "][" << j << "][" << k << "]: " << moreNums[i][j][k] << endl;
-    // //         }
-    // //     }
-    // // }
-    // printArrays(&numbers[0][0], 3);
+    board[0][2] = 'X';
+    printBoard(board);
+    checkWin(board);
 
-    delete[] numbers;
+    board[2][2] = 'X';
+    printBoard(board);
+    checkWin(board);
+
+    board[1][2] = 'X';
+    printBoard(board);
+    checkWin(board);
+
+    board[2][1] = 'O';
+    printBoard(board);
+    checkWin(board);
+
+    board[1][0] = 'X';
+    printBoard(board);
+    checkWin(board);
+
     return 0;
 }
+
+void checkWin(char board[3][3]) {
+    bool winner = false;
+    for(size_t i = 0; i < 3; i++) {
+        if(board[0][i] != ' ') {
+            if(board[0][i] == board[1][i]) {
+                if(board[1][i] == board[2][i]) {
+                    winner = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    if(winner) {
+        cout << "We have a winner!" << endl;
+    } else {
+        cout << "No winner yet." << endl;
+    }
+    // if(board[0][0] == board[1][0] && board[1][0] == board[2][0]) {
+    //     cout << "We have a winner!" << endl;
+    // } else {
+    //     cout << "No winner" << endl;
+    // }
+}
+
+void printBoard(char board[3][3]) {
+    cout << setfill('-') << setw(7) << "" << endl;
+    cout << setfill(' ');
+    for(size_t i = 0; i < 3; i++) {
+        cout << "|";
+        for(size_t j = 0; j < 3; j++) {
+            cout << board[i][j] << "|";
+        }
+        cout << endl;
+        cout << setfill('-') << setw(7) << "" << endl;
+        cout << setfill(' ');
+    }
+}
+
+void initialzeBoard(char board[3][3]) {
+    for(size_t i = 0; i < 3; i++) {
+        for(size_t j = 0; j < 3; j++) {
+            board[i][j] = ' ';
+        }
+    }
+}
+
+
+
+
+
+
+    // // int numbers[1000][1000][3];
+    // int *numbers = new int[600000000];
+
+    // for(size_t i = 0; i < 600000000; i++) {
+    //     numbers[i] = i;
+    // }
+
+    // // cout << sizeof(numbers) << endl;
+
+    // // int numbers[3][3] = {0};
+    // // int moreNums[3][3][3] = {0};
+
+    // // numbers[2][0] = 42;
+    // // numbers[1][1] = 15;
+
+    // // // for(size_t i = 0; i < 3; i++) {
+    // // //     for(size_t j = 0; j < 3; j++) {
+    // // //         for(size_t k = 0; k < 3; k++) {
+    // // //             cout << "moreNums[" << i << "][" << j << "][" << k << "]: " << moreNums[i][j][k] << endl;
+    // // //         }
+    // // //     }
+    // // // }
+    // // printArrays(&numbers[0][0], 3);
+
+    // delete[] numbers;
+
 
 // void printArrays(int numbers[][3], size_t arrSize) {
 // void printArrays(int* numbers, size_t arrSize) {
