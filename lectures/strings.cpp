@@ -1,54 +1,51 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
+
+void splitPhrase(string, string[], size_t, char, size_t&);
 
 int main(int argc, char *argv[]) {
     // size_t foxIdx;
     // string newStr;
     
-    string phrase = "The quick brown fox jumps over the lazy dog.";
-    string words[phrase.length()];
+    // string phrase = "The quick brown fox jumps over the lazy dog.";
+    string phrase = "The cow jumped over the moon";
+    size_t arrSize = phrase.length();
+    string* words = new string[arrSize];
 
-    string tmpWord = "";
+
+
+    char delimiter = ' ';
+    string inputDelim = " ";
     size_t counter = 0;
 
-    // First iteration:
-    // for(auto it = phrase.begin(); it != phrase.end(); it++) {
-    //     if(*it == ' ') {
-    //         words[counter] = tmpWord;
-    //         tmpWord.clear();
-    //         counter++;
-    //         continue;
-    //     }
-    //     tmpWord.push_back(*it);
-    // }
-    // words[counter] = tmpWord;
-    // tmpWord.clear();
-    // counter++;
-    
+    // cout << "What charater to do you want to split on: ";
+    // cin >> delimiter;
+    getline(cin, inputDelim);
+    delimiter = inputDelim.at(0);
 
-    // Second iteration:
-    for(size_t i = 0; i < phrase.length(); i++) {
-        size_t foundIdx = phrase.find(" ", i);
-        // cout << "DEBUG: foundIdx: " << foundIdx << endl;
-        if(foundIdx == string::npos) {
-            tmpWord = phrase.substr(i);
-            words[counter] = tmpWord;
-            counter++;
-            break;
-        }
-        tmpWord = phrase.substr(i, foundIdx-i);
-        words[counter] = tmpWord;
-        counter++;
-        // cout << "DEBUG: counter: " << counter << endl;
-        tmpWord.clear();
-        i = foundIdx;
-    }
+    splitPhrase(phrase, words, arrSize, delimiter, counter);
+
+    // for(size_t i = 0; i < 9; i++) {
+    //     string tmpWord;
+    //     iss >> tmpWord;
+    //     cout << "DEBUG: tmpWord: " << tmpWord << endl;
+    // }
 
     for(size_t i = 0; i < counter; i++) {
-        cout << "DEBUG: words[" << i << "]: " << words[i] << endl;
+        if(words[i] == "") {
+            continue;
+        }
+        // cout << "DEBUG: words[" << i << "]: " << words[i] << endl;
+        cout << words[i] << endl;
     }
+
+    // while(words[counter] != "defaultWord") {
+    //     cout << "DEUBG: words[counter]: " << words[counter] << endl;
+    //     counter++;
+    // }
 
     // phrase.clear();
     // phrase = "";
@@ -70,9 +67,60 @@ int main(int argc, char *argv[]) {
 
     // cout << "phrase.empty(): " << boolalpha << phrase.empty() << endl;
     // cout << "phrase == \"\": " << boolalpha << (phrase == "") << endl;
+    delete[] words;
     return 0;
 }
 
+void splitPhrase(string phrase, string words[], size_t arrSize, char delim, size_t& counter) {
+    string tmpWord = "";
+    // size_t counter = 0;
+
+
+    // First iteration:
+    // for(auto it = phrase.begin(); it != phrase.end(); it++) {
+    //     if(*it == delim) {
+    //         words[counter] = tmpWord;
+    //         tmpWord.clear();
+    //         counter++;
+    //         continue;
+    //     }
+    //     tmpWord.push_back(*it);
+    // }
+    // words[counter] = tmpWord;
+    // tmpWord.clear();
+    // counter++;
+    
+
+    // Second iteration:
+    // for(size_t i = 0; i < phrase.length(); i++) {
+    //     size_t foundIdx = phrase.find(delim, i);
+    //     // cout << "DEBUG: foundIdx: " << foundIdx << endl;
+    //     if(foundIdx == string::npos) {
+    //         tmpWord = phrase.substr(i);
+    //         words[counter] = tmpWord;
+    //         counter++;
+    //         break;
+    //     }
+    //     tmpWord = phrase.substr(i, foundIdx-i);
+    //     words[counter] = tmpWord;
+    //     counter++;
+    //     // cout << "DEBUG: counter: " << counter << endl;
+    //     tmpWord.clear();
+    //     i = foundIdx;
+    // }
+
+    // Third Iteration:
+    stringstream iss;
+    iss.str(phrase);
+
+    // while(iss >> tmpWord) {
+    while(getline(iss, tmpWord, delim)) {
+        words[counter] = tmpWord;
+        counter++;
+        tmpWord.clear();
+    }
+
+}
 
 
 
