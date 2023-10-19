@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     }
 
     for(size_t i = 0; i < numLines; i++) {
-        if(i%2 == 1) {
+        if(i%2 == 0) {
             cout << words[i] << endl;
         }
     }
