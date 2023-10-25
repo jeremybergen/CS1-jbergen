@@ -10,64 +10,181 @@ Structures
 
 using namespace std;
 
-struct Cylinder {
-    float height;
-    float radius;
-    float area;
-    float volume;
-
-    void calcArea() {
-        area = pow(radius, 2) * M_PI;
-    }
-
-    void calcVolume() {
-        volume = area * height;
-    }
+struct Node {
+    string data;
+    Node *next;
+    // Node *prev;
 };
 
-string getName();
-void welcomeName();
-void getHeight(Cylinder&);
-void getRadius(Cylinder&);
+void printList(Node *);
 
 int main(int argc, char **argv) {
-    Cylinder cylind1;
+    // int nums[5] = {1, 2, 3, 4, 5};
 
-    welcomeName();
+    // nums[10] = 42;
+    Node *node1 = new Node();
+    Node *node2 = new Node();
+    Node *node3 = new Node();
+    Node *node4 = new Node();
 
-    getHeight(cylind1);
-    getRadius(cylind1);
+    node1->data = "This";
+    node1->next = node2;
 
-    cylind1.calcArea();
-    cylind1.calcVolume();
+    node2->data = "is";
+    node2->next = node3;
 
-    printf("Your cylinder with height %f and radius %f has a volume of %f\n", cylind1.height, cylind1.radius, cylind1.volume);
+    node3->data = "a";
+    node3->next = node4;
 
+    node4->data = "phrase";
+    node4->next = NULL;
+
+    // cout << node1->data << " " << node1->next->data << " " << node1->next->next->data << " " << node1->next->next->next->data;
+
+    printList(node1);
+
+    Node *node5 = new Node();
+    node5->data = "also";
+    node5->next = NULL;
+    node4->next = node5;
+
+    printList(node1);
+
+    node2->next = node4;
+
+    printList(node1);
+
+    delete node1;
+    delete node2;
+    delete node3;
+    delete node4;
+    delete node5;
     return 0;
 }
 
-void getHeight(Cylinder& tCylinder) {
-    cout << "Please enter the height: ";
-    cin >> tCylinder.height;
+void printList(Node *head) {
+    Node *tmpNode = head;
+    while(tmpNode != NULL) {
+        cout << tmpNode->data;
+        if(tmpNode->next != NULL) {
+            cout << " ";
+        }
+        tmpNode = tmpNode->next;
+    }
+    cout << endl;
 }
 
-void getRadius(Cylinder& tCylinder) {
-    cout << "Please enter the radius: ";
-    cin >> tCylinder.radius;
-}
 
-string getName() {
-    string name;
-    getline(cin, name);
-    return name;
-}
 
-void welcomeName() {
-    string name;
-    cout << "Welcome to our cylinder calculator. Please enter your name: ";
-    name = getName();
-    cout << "Welcome " << name << "." << endl;
-}
+
+
+
+
+
+
+    // Point *point1 = new Point({0, 0});
+    // Point *point2 = new Point({42});
+
+    // // point1->x = 0;
+    // // point1->y = 0;
+
+    // point2->x = 1;
+    // point2->y = 1;
+
+    // cout << "The distance between (" << point1->x << ", " << point1->y << ") and ("
+    //      << point2->x << ", " << point2->y << ") is: "
+    //      << sqrt(pow(point1->x - point2->x, 2) + pow(point1->y - point2->y, 2)) << endl;
+
+    // delete point1;
+    // delete point2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// template <class T1>
+// struct Cylinder {
+//     T1 height;
+//     T1 radius;
+//     T1 area;
+//     T1 volume;
+
+//     void calcArea() {
+//         area = pow(radius, 2) * M_PI;
+//     }
+
+//     void calcVolume() {
+//         volume = area * height;
+//     }
+// };
+
+// string getName();
+// void welcomeName();
+
+// template <class T1>
+// void getHeight(Cylinder<T1>&);
+
+// template <class T1>
+// void getRadius(Cylinder<T1>&);
+
+// int main(int argc, char **argv) {
+//     Cylinder <float> cylind1;
+
+//     welcomeName();
+
+//     getHeight<float>(cylind1);
+//     getRadius<float>(cylind1);
+
+//     cylind1.calcArea();
+//     cylind1.calcVolume();
+
+//     // printf("Your cylinder with height %d and radius %d has a volume of %d\n", cylind1.height, cylind1.radius, cylind1.volume);
+//     cout << "Your cylinder with height " << cylind1.height
+//          << " and radius " << cylind1.radius
+//          << " has a volume of " << cylind1.volume << endl;
+
+//     return 0;
+// }
+
+// template <class T1>
+// void getHeight(Cylinder<T1>& tCylinder) {
+//     cout << "Please enter the height: ";
+//     cin >> tCylinder.height;
+// }
+
+// template <class T1>
+// void getRadius(Cylinder<T1>& tCylinder) {
+//     cout << "Please enter the radius: ";
+//     cin >> tCylinder.radius;
+// }
+
+// string getName() {
+//     string name;
+//     getline(cin, name);
+//     return name;
+// }
+
+// void welcomeName() {
+//     string name;
+//     cout << "Welcome to our cylinder calculator. Please enter your name: ";
+//     name = getName();
+//     cout << "Welcome " << name << "." << endl;
+// }
 
 
 
