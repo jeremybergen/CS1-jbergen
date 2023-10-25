@@ -10,10 +10,10 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = structs.out
+PROGRAM = linkedlist.out
 
 # list all .cpp files separated by space
-CPPFILES = structs.cpp
+CPPFILES = linkedlist.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
