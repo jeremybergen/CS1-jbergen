@@ -6,30 +6,53 @@ File I/O
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
     string tmpString;
     fstream fs;
+    vector<char> myBuffer;
     // fstream fs2;
     // size_t imgSize = 0;
-    char *buffer = new char[10];
+    // char *buffer = new char[10];
+    char *fullBuffer = new char[10000];
+    size_t fileSize = 0;
+    fs.open("files/input.csv", ios_base::in | ios_base::out | ios_base::ate);
+    fileSize = fs.tellg();
+    myBuffer.reserve(fileSize);
+    
+    char *buffer = new char[fileSize];
+    fs.seekg(0);
+    fs.read(buffer, fileSize);
+    // fs.read(buffer, 10);
 
-    fs.open("files/input.csv", ios_base::in | ios_base::out);
+    // cout << "buffer: " << buffer << endl;
 
-    fs.read(buffer, 10);
+    // fs.read(buffer, 10);
 
-    cout << "buffer: " << buffer << endl;
-
-    fs.read(buffer, 10);
-
-    cout << "buffer: " << buffer << endl;
+    // cout << "buffer: " << buffer << endl;
 
     cout << "Enter 10 characters: ";
     getline(cin, tmpString);
 
-    fs.seekg(fs.tellg()-10);
+    for(int i = 0; i < tmpString.length(); i++) {
+        buffer[i] = tmpString[i];
+    }
+
+    // fs.seekg(fs.tellg()-10);
+
+    // fs.write(tmpString.c_str(), 10);
+
+    // cout << fs.tellg() << endl;
+
+    fs.seekg(0);
+    fs.write(buffer, fileSize);
+
+    // fs.read(fullBuffer, 10000);
+    // cout << fullBuffer << endl;
+
     // fs2.open("files/copycat.jpg", ios_base::out | ios_base::binary);
 
     // cout << fs.tellg() << endl;
@@ -45,6 +68,7 @@ int main(int argc, char *argv[]) {
 
     fs.close();
     delete[] buffer;
+    delete[] fullBuffer;
     // fs2.close();
     // delete[] image;
     return 0;
