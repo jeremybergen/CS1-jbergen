@@ -10,6 +10,7 @@ namespace cylinder {
 
         void calcArea() {
             areaCircle = M_PI * pow(radius, 2);
+            // std::cout << "DEBUG: areaCircle: " << areaCircle << std::endl;
         }
 
         void printVals() {
@@ -23,4 +24,5 @@ namespace cylinder {
     void getHeight(int&);
     void getRadius(int&);
     void calcVolume(Cylinder &);
+    void test();
 }
