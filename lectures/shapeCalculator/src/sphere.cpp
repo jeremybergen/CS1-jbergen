@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
+#include <fstream>
 #include "sphere.h"
 
 namespace sphere {
@@ -11,6 +12,11 @@ namespace sphere {
 
     void printVals(sphere::Sphere &s1) {
         std::cout << "Your sphere with radius " << s1.radius
+                  << " has a volume of " << s1.volume << std::endl;
+    }
+
+    void printVals(sphere::Sphere &s1, std::ofstream& fout) {
+        fout << "Your sphere with radius " << s1.radius
                   << " has a volume of " << s1.volume << std::endl;
     }
 

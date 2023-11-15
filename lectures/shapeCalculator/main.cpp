@@ -8,6 +8,7 @@ Shape calculator
 #include "src/sphere.h"
 #include "src/cube.h"
 #include "src/greet.h"
+#include "src/fileio.h"
 
 bool runProgram();
 void test();
@@ -18,6 +19,11 @@ int main(int argc, char *argv[]) {
 
     if(argc == 2 && (string)argv[1] == "test") {
         test();
+        return 0;
+    } else if(argc > 2 && (string)argv[1] == "-f") {
+        // ./programname.out -f input.txt
+        std::string fileName = (string)argv[2];
+        fileProcess::readFile(fileName);
         return 0;
     }
     

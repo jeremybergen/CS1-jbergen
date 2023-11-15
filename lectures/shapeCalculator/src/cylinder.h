@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <iostream>
+#include <fstream>
 
 namespace cylinder {
     struct Cylinder {
@@ -15,6 +16,11 @@ namespace cylinder {
 
         void printVals() {
             std::cout << "Your cylinder with radius " << radius
+                      << " and height " << height << " has a volume of "
+                      << volume << std::endl;
+        }
+        void printVals(std::ofstream& fout) {
+            fout << "Your cylinder with radius " << radius
                       << " and height " << height << " has a volume of "
                       << volume << std::endl;
         }

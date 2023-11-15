@@ -13,7 +13,7 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = shapesCalculator.out
 
 # list all .cpp files separated by space
-CPPFILES = main.cpp src/cylinder.cpp src/sphere.cpp src/greet.cpp
+CPPFILES = main.cpp src/cylinder.cpp src/sphere.cpp src/greet.cpp src/fileio.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file

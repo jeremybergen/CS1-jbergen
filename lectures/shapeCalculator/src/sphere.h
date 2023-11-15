@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <iostream>
+#include <fstream>
 
 namespace sphere{
     struct Sphere {
@@ -32,5 +33,6 @@ namespace sphere{
 
     void createSphere(sphere::Sphere &);
     void printVals(sphere::Sphere &);
+    void printVals(sphere::Sphere&, std::ofstream&);
     void test();
 }

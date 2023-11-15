@@ -1,0 +1,4 @@
+cylinder,5,2
+cylinder,12,7
+sphere,8
+sphere,4
