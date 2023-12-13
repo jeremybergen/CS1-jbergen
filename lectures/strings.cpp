@@ -4,123 +4,181 @@
 
 using namespace std;
 
-void splitPhrase(string, string[], size_t, char, size_t&);
+// void splitPhrase(string, string[], size_t, char, size_t&);
 
+// ./strings.out -s Jeremy Bergen
 int main(int argc, char *argv[]) {
-    // size_t foxIdx;
-    // string newStr;
-    
-    // string phrase = "The quick brown fox jumps over the lazy dog.";
-    string phrase = "The cow jumped over the moon";
-    size_t arrSize = phrase.length();
-    string* words = new string[arrSize];
-
-
-
-    char delimiter = ' ';
-    string inputDelim = " ";
-    size_t counter = 0;
-
-    // cout << "What charater to do you want to split on: ";
-    // cin >> delimiter;
-    getline(cin, inputDelim);
-    delimiter = inputDelim.at(0);
-
-    splitPhrase(phrase, words, arrSize, delimiter, counter);
-
-    // for(size_t i = 0; i < 9; i++) {
-    //     string tmpWord;
-    //     iss >> tmpWord;
-    //     cout << "DEBUG: tmpWord: " << tmpWord << endl;
-    // }
-
-    for(size_t i = 0; i < counter; i++) {
-        if(words[i] == "") {
-            continue;
+    string newName = "";
+    if(argc > 1 && (string)argv[1] == "-s") {
+        // int nameSize = argc - 2;
+        for(int i = 2; i < argc; i++) {
+            newName += (string)argv[i] + " ";
         }
-        // cout << "DEBUG: words[" << i << "]: " << words[i] << endl;
-        cout << words[i] << endl;
     }
+    newName.erase(newName.size()-1, 1);
+    
+    string origName = "Inigo Montoya";
+    // string newName = "Jeremy Bergen";
+    
+    string myString = "Hello my name is Inigo Montoya, you killed my father, prepare to die.";
 
-    // while(words[counter] != "defaultWord") {
-    //     cout << "DEUBG: words[counter]: " << words[counter] << endl;
-    //     counter++;
-    // }
+    size_t nameLoc = myString.find(origName, 0);
 
-    // phrase.clear();
-    // phrase = "";
+    myString = myString.erase(nameLoc, origName.size());
 
-    // cout << "phrase: " << phrase << endl;
+    cout << "DEBUG: myString: " << myString << endl;
 
-    // phrase.append("On the end");
-    // phrase.push_back('!');
-    // phrase.insert(17, 10, '!');
+    myString.insert(nameLoc, newName);
 
-    // cout << "phrase: " << phrase << endl;
+    cout << "DEBUG: myString: " << myString << endl;
 
-    // cout << "phrase.find(\"fox\"): " << phrase.find("fox") << endl;
-    // foxIdx = phrase.find("fox");
-
-    // newStr = phrase.substr(foxIdx, 3);
-
-    // cout << "newStr: " << newStr << endl;
-
-    // cout << "phrase.empty(): " << boolalpha << phrase.empty() << endl;
-    // cout << "phrase == \"\": " << boolalpha << (phrase == "") << endl;
-    delete[] words;
     return 0;
 }
 
-void splitPhrase(string phrase, string words[], size_t arrSize, char delim, size_t& counter) {
-    string tmpWord = "";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // // size_t foxIdx;
+    // // string newStr;
+    
+    // // string phrase = "The quick brown fox jumps over the lazy dog.";
+    // string phrase = "The cow jumped over the moon";
+    // size_t arrSize = phrase.length();
+    // string* words = new string[arrSize];
+
+
+
+    // char delimiter = ' ';
+    // string inputDelim = " ";
     // size_t counter = 0;
 
+    // // cout << "What charater to do you want to split on: ";
+    // // cin >> delimiter;
+    // getline(cin, inputDelim);
+    // delimiter = inputDelim.at(0);
 
-    // First iteration:
-    // for(auto it = phrase.begin(); it != phrase.end(); it++) {
-    //     if(*it == delim) {
-    //         words[counter] = tmpWord;
-    //         tmpWord.clear();
-    //         counter++;
+    // splitPhrase(phrase, words, arrSize, delimiter, counter);
+
+    // // for(size_t i = 0; i < 9; i++) {
+    // //     string tmpWord;
+    // //     iss >> tmpWord;
+    // //     cout << "DEBUG: tmpWord: " << tmpWord << endl;
+    // // }
+
+    // for(size_t i = 0; i < counter; i++) {
+    //     if(words[i] == "") {
     //         continue;
     //     }
-    //     tmpWord.push_back(*it);
+    //     // cout << "DEBUG: words[" << i << "]: " << words[i] << endl;
+    //     cout << words[i] << endl;
     // }
-    // words[counter] = tmpWord;
-    // tmpWord.clear();
-    // counter++;
+
+    // // while(words[counter] != "defaultWord") {
+    // //     cout << "DEUBG: words[counter]: " << words[counter] << endl;
+    // //     counter++;
+    // // }
+
+    // // phrase.clear();
+    // // phrase = "";
+
+    // // cout << "phrase: " << phrase << endl;
+
+    // // phrase.append("On the end");
+    // // phrase.push_back('!');
+    // // phrase.insert(17, 10, '!');
+
+    // // cout << "phrase: " << phrase << endl;
+
+    // // cout << "phrase.find(\"fox\"): " << phrase.find("fox") << endl;
+    // // foxIdx = phrase.find("fox");
+
+    // // newStr = phrase.substr(foxIdx, 3);
+
+    // // cout << "newStr: " << newStr << endl;
+
+    // // cout << "phrase.empty(): " << boolalpha << phrase.empty() << endl;
+    // // cout << "phrase == \"\": " << boolalpha << (phrase == "") << endl;
+    // delete[] words;
+
+
+
+// void splitPhrase(string phrase, string words[], size_t arrSize, char delim, size_t& counter) {
+//     string tmpWord = "";
+//     // size_t counter = 0;
+
+
+//     // First iteration:
+//     // for(auto it = phrase.begin(); it != phrase.end(); it++) {
+//     //     if(*it == delim) {
+//     //         words[counter] = tmpWord;
+//     //         tmpWord.clear();
+//     //         counter++;
+//     //         continue;
+//     //     }
+//     //     tmpWord.push_back(*it);
+//     // }
+//     // words[counter] = tmpWord;
+//     // tmpWord.clear();
+//     // counter++;
     
 
-    // Second iteration:
-    // for(size_t i = 0; i < phrase.length(); i++) {
-    //     size_t foundIdx = phrase.find(delim, i);
-    //     // cout << "DEBUG: foundIdx: " << foundIdx << endl;
-    //     if(foundIdx == string::npos) {
-    //         tmpWord = phrase.substr(i);
-    //         words[counter] = tmpWord;
-    //         counter++;
-    //         break;
-    //     }
-    //     tmpWord = phrase.substr(i, foundIdx-i);
-    //     words[counter] = tmpWord;
-    //     counter++;
-    //     // cout << "DEBUG: counter: " << counter << endl;
-    //     tmpWord.clear();
-    //     i = foundIdx;
-    // }
+//     // Second iteration:
+//     // for(size_t i = 0; i < phrase.length(); i++) {
+//     //     size_t foundIdx = phrase.find(delim, i);
+//     //     // cout << "DEBUG: foundIdx: " << foundIdx << endl;
+//     //     if(foundIdx == string::npos) {
+//     //         tmpWord = phrase.substr(i);
+//     //         words[counter] = tmpWord;
+//     //         counter++;
+//     //         break;
+//     //     }
+//     //     tmpWord = phrase.substr(i, foundIdx-i);
+//     //     words[counter] = tmpWord;
+//     //     counter++;
+//     //     // cout << "DEBUG: counter: " << counter << endl;
+//     //     tmpWord.clear();
+//     //     i = foundIdx;
+//     // }
 
-    // Third Iteration:
-    stringstream iss;
-    iss.str(phrase);
+//     // Third Iteration:
+//     stringstream iss;
+//     iss.str(phrase);
 
-    // while(iss >> tmpWord) {
-    while(getline(iss, tmpWord, delim)) {
-        words[counter] = tmpWord;
-        counter++;
-        tmpWord.clear();
-    }
+//     // while(iss >> tmpWord) {
+//     while(getline(iss, tmpWord, delim)) {
+//         words[counter] = tmpWord;
+//         counter++;
+//         tmpWord.clear();
+//     }
 
-}
+// }
 
 
 
